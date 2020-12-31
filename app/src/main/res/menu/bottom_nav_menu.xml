@@ -11,9 +11,4 @@
         android:icon="@drawable/ic_new_post_24"
         android:title="@string/title_create" />
 
-    <item
-        android:id="@+id/navigation_accounts"
-        android:icon="@drawable/ic_add_box_24"
-        android:title="@string/title_accounts" />
-
 </menu>

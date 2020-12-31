@@ -6,17 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".ui.create.CreateFragment">
 
-    <TextView
-        android:id="@+id/text_create"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="369dp"
+        android:layout_height="145dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Post Text"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/postTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Post"
+        app:layout_constraintBaseline_toBaselineOf="@+id/switch2"
+        app:layout_constraintEnd_toStartOf="@+id/switch2" />
+
+    <TextView
+        android:id="@+id/storyTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="Story"
+        app:layout_constraintBaseline_toBaselineOf="@+id/switch2"
+        app:layout_constraintStart_toEndOf="@+id/switch2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
