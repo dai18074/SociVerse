@@ -4,47 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.create.CreateFragment">
+    tools:context="com.example.socialmanager.fragments.CreateFragment">
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/txtPost"
         android:layout_width="369dp"
         android:layout_height="145dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Post Text"
+        android:hint="@string/post_text"
         android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btnPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/groupPostTypes" />
 
-    <Switch
-        android:id="@+id/switch2"
+    <RadioGroup
+        android:id="@+id/groupPostTypes"
+        android:layout_width="259dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/txtTypeOfPost"
+        app:layout_constraintTop_toBottomOf="@+id/txtTypeOfPost">
+
+        <RadioButton
+            android:id="@+id/radioPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/post" />
+
+        <RadioButton
+            android:id="@+id/radioStory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/story" />
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/checkBoxTwitter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/twitter"
+        app:layout_constraintStart_toStartOf="@+id/txtWhereToShare"
+        app:layout_constraintTop_toBottomOf="@+id/txtWhereToShare" />
+
+    <CheckBox
+        android:id="@+id/checkBoxFb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/facebook"
+        app:layout_constraintBaseline_toBaselineOf="@+id/checkBoxTwitter"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxTwitter" />
+
+    <CheckBox
+        android:id="@+id/checkBoxIg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instagram"
+        app:layout_constraintBaseline_toBaselineOf="@+id/checkBoxFb"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxFb" />
 
     <TextView
-        android:id="@+id/postTxt"
+        android:id="@+id/txtWhereToShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Post"
-        app:layout_constraintBaseline_toBaselineOf="@+id/switch2"
-        app:layout_constraintEnd_toStartOf="@+id/switch2" />
+        android:layout_marginTop="32dp"
+        android:text="@string/sharing_options"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/txtPost"
+        app:layout_constraintTop_toBottomOf="@+id/txtPost" />
 
     <TextView
-        android:id="@+id/storyTxt"
+        android:id="@+id/txtTypeOfPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Story"
-        app:layout_constraintBaseline_toBaselineOf="@+id/switch2"
-        app:layout_constraintStart_toEndOf="@+id/switch2" />
+        android:layout_marginTop="32dp"
+        android:text="@string/type_of_post"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxTwitter"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTwitter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

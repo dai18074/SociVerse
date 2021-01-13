@@ -1,6 +1,21 @@
 <resources>
-    <string name="app_name">SocialManager</string>
+    <string name="app_name">SociVerse</string>
     <string name="title_home">Home</string>
     <string name="title_create">New Post/Story</string>
-    <string name="title_accounts">Add Account</string>
+    <string name="title_search">Search</string>
+    <string name="search_button">Search button</string>
+    <string name="trending_hashtags">Trending Hashtags</string>
+    <string name="hashtag">#</string>
+    <string name="post_text">Post Text</string>
+    <string name="post">Post</string>
+    <string name="story">Story</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="sharing_options">Sharing options:</string>
+    <string name="type_of_post">Type of post:</string>
+    <string name="post_type">Post Type</string>
+    <string name="username">Username</string>
+    <string name="post_image">Post Image</string>
+    <string name="date">Date</string>
 </resources>

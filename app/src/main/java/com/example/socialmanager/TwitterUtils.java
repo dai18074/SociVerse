@@ -2,14 +2,20 @@ package com.example.socialmanager;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import twitter4j.AsyncTwitter;
 import twitter4j.AsyncTwitterFactory;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
+import twitter4j.Trend;
 import twitter4j.Trends;
+import twitter4j.Twitter;
 import twitter4j.TwitterAdapter;
 import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
 import twitter4j.TwitterListener;
 import twitter4j.TwitterMethod;
 
@@ -51,20 +57,29 @@ public class TwitterUtils {
         asyncTwitter.updateStatus(tweet.toString());
     }
 
-    public void getTrends() {
-        AsyncTwitter asyncTwitter = factory.getInstance();
-        asyncTwitter.addListener(listener);
+    public List<String> getTrends() {
+        List<String> trendsList = new ArrayList<>();
+        Twitter twitter = new TwitterFactory().getInstance();
+        try {
+            Trends trends = twitter.getPlaceTrends(23424833);
+            for (Trend trend : trends.getTrends()) {
+                trendsList.add(trend.getName());
+            }
 
-        asyncTwitter.getPlaceTrends(23424833);
+        } catch (TwitterException te) {
+            te.printStackTrace();
+            System.out.println("Failed to get trends: " + te.getMessage());
+        }
+        return trendsList;
     }
+
 
     public void searchForTweets(@NotNull StringBuffer hashtag) {
         AsyncTwitter asyncTwitter = factory.getInstance();
         asyncTwitter.addListener(listener);
 
-        Query query = new Query(hashtag.toString());
+        Query query = new Query("#" + hashtag.toString());
         query.count(25); //100 is the max allowed
         asyncTwitter.search(query);
     }
-
 }

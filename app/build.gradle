@@ -11,6 +11,8 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary true
+        multiDexEnabled true
         applicationId "com.example.socialmanager"
         minSdkVersion 16
         targetSdkVersion 30
@@ -48,15 +50,18 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation 'androidx.navigation:navigation-fragment:2.2.2'
-    implementation 'androidx.navigation:navigation-ui:2.2.2'
+    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.2'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    implementation files('libs\\twitter4j-async-4.0.7.jar')
-    implementation files('libs\\twitter4j-core-4.0.7.jar')
-    implementation files('libs\\twitter4j-examples-4.0.7.jar')
-    implementation files('libs\\twitter4j-stream-4.0.7.jar')
-    testImplementation 'junit:junit:4.+'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation files('libs/twitter4j-async-4.0.7.jar')
+    implementation files('libs/twitter4j-core-4.0.7.jar')
+    implementation files('libs/twitter4j-examples-4.0.7.jar')
+    implementation files('libs/twitter4j-stream-4.0.7.jar')
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
