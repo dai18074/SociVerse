@@ -21,15 +21,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        // API KEYS
-        buildConfigField("String", "TWITTER_CONSUMER_KEY", apikeyProperties['TWITTER_CONSUMER_KEY'])
-        buildConfigField("String", "TWITTER_CONSUMER_SECRET", apikeyProperties['TWITTER_CONSUMER_SECRET'])
-        buildConfigField("String", "TWITTER_ACCESS_TOKEN", apikeyProperties['TWITTER_ACCESS_TOKEN'])
-        buildConfigField("String", "TWITTER_ACCESS_TOKEN_SECRET", apikeyProperties['TWITTER_ACCESS_TOKEN_SECRET'])
-        buildConfigField("String", "FB_CONSUMER_KEY", apikeyProperties['FB_CONSUMER_KEY'])
-        buildConfigField("String", "FB_CONSUMER_SECRET", apikeyProperties['FB_CONSUMER_SECRET'])
-        buildConfigField("String", "IG_CONSUMER_KEY", apikeyProperties['IG_CONSUMER_KEY'])
-        buildConfigField("String", "IG_CONSUMER_SECRET", apikeyProperties['IG_CONSUMER_SECRET'])
+        buildConfigField("String", "IG_USERNAME", apikeyProperties['IG_USERNAME'])
+        buildConfigField("String", "IG_PASSWORD", apikeyProperties['IG_PASSWORD'])
     }
 
     buildTypes {
@@ -59,6 +52,7 @@ dependencies {
     implementation files('libs/twitter4j-core-4.0.7.jar')
     implementation files('libs/twitter4j-examples-4.0.7.jar')
     implementation files('libs/twitter4j-stream-4.0.7.jar')
+    implementation 'com.github.instagram4j:instagram4j:2.0.3'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.1'

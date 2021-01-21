@@ -37,6 +37,10 @@ public class SearchAdapter extends ArrayAdapter<Post> {
         return new Post();
     }
 
+    public List<Post> getPosts(){
+        return dataset;
+    }
+
     public void setPosts(@NonNull List<Post> posts) {
         this.dataset = posts;
         notifyDataSetChanged();
@@ -78,7 +82,8 @@ public class SearchAdapter extends ArrayAdapter<Post> {
         Post post = dataset.get(position);
         if (post.getType() == "twitter") holder.imgType.setImageResource(R.drawable.twitter_logo);
         else holder.imgType.setImageResource(R.drawable.ig_logo);
-        holder.txtUser.setText(post.getUser());
+        String user = post.getUser();
+        holder.txtUser.setText(user.length() > 10 ? user.substring(0,10) : user);
         holder.txtDate.setText(post.getDate());
         holder.txtPostText.setText(post.getText());
         if (post.getUrlToImage() != "") {

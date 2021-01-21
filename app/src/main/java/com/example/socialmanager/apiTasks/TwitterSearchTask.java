@@ -75,8 +75,8 @@ public class TwitterSearchTask extends AsyncTask<String, Void, List<Post>> {
     }
 
     @Override
-    protected void onPostExecute(List<Post> tweets) {
-        searchAdapter.setPosts(tweets);
+    protected void onPostExecute(List<Post> posts) {
+        searchAdapter.setPosts(posts);
     }
 
 }

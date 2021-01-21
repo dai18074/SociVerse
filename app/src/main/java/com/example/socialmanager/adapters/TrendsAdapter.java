@@ -34,6 +34,10 @@ public class TrendsAdapter extends ArrayAdapter<String> {
         return "";
     }
 
+    public List<String> getTrends(){
+        return dataset;
+    }
+
     public void setTrends(@NonNull List<String> trends) {
         this.dataset = trends;
         notifyDataSetChanged();

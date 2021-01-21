@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.socialmanager.R;
+import com.example.socialmanager.apiTasks.TwitterPostTask;
 
 public class CreateFragment extends Fragment {
 
@@ -30,23 +31,23 @@ public class CreateFragment extends Fragment {
         RadioButton radioPost = view.findViewById(R.id.radioPost);
         RadioButton radioStory = view.findViewById(R.id.radioStory);
         CheckBox checkBoxTwitter = view.findViewById(R.id.checkBoxTwitter);
-        CheckBox checkBoxFb = view.findViewById(R.id.checkBoxFb);
         CheckBox checkBoxIg = view.findViewById(R.id.checkBoxIg);
         EditText txtPost = view.findViewById(R.id.txtPost);
 
         buttonPost.setOnClickListener(v -> {
             String postText = txtPost.getText().toString();
             Boolean isItPost = radioPost.isChecked();
-            if (checkBoxTwitter.isChecked())
-                // Post on twitter
-            if (checkBoxFb.isChecked())
-                // Post on fb
-            if (checkBoxIg.isChecked())
-                // Post on ig
+            if (checkBoxTwitter.isChecked()){
+                newPostTwitter(postText);
+            }
+            if (checkBoxIg.isChecked()){}
 
-            System.out.println("I clicked this button!");
-            // depending on type and social media, make a new post/story
         });
 
+    }
+
+    private void newPostTwitter(String queryString){
+        TwitterPostTask postTwitterTask = new TwitterPostTask();
+        postTwitterTask.execute(queryString);
     }
 }
