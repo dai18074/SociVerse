@@ -18,4 +18,6 @@
     <string name="username">Username</string>
     <string name="post_image">Post Image</string>
     <string name="date">Date</string>
+    <string name="file_path">File Path</string>
+    <string name="upload_photo">Upload Photo</string>
 </resources>

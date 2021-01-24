@@ -10,22 +10,23 @@
         android:id="@+id/txtPost"
         android:layout_width="369dp"
         android:layout_height="145dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/post_text"
+        android:importantForAutofill="no"
         android:inputType="textMultiLine"
+        android:maxLength="280"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGetPhoto" />
 
     <Button
         android:id="@+id/btnPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/post"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,7 @@
         android:id="@+id/txtWhereToShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/sharing_options"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/txtPost"
@@ -84,10 +85,34 @@
         android:id="@+id/txtTypeOfPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/type_of_post"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/checkBoxTwitter"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxTwitter" />
+
+    <TextView
+        android:id="@+id/txtFilePath"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:maxLines="2"
+        android:text="@string/file_path"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnGetPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/upload_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFilePath" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
