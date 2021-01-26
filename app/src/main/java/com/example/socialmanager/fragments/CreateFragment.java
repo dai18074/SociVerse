@@ -1,13 +1,11 @@
 package com.example.socialmanager.fragments;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,10 +28,6 @@ import com.example.socialmanager.apiTasks.TwitterPostTask;
 import com.example.socialmanager.utils.SharedViewModel;
 
 import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 import twitter4j.StatusUpdate;
 
@@ -41,13 +35,12 @@ import static android.app.Activity.RESULT_OK;
 
 public class CreateFragment extends Fragment {
 
-    private static int SELECT_PICTURE = 1;
+    private static final int SELECT_PICTURE = 1;
     private SharedViewModel sharedViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_create, container, false);
-        return root;
+        return inflater.inflate(R.layout.fragment_create, container, false);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -155,7 +148,7 @@ public class CreateFragment extends Fragment {
     }
 
     private String getPath(Uri uri) {
-        String path = "";
+        String path;
         String[] projection = { MediaStore.Images.Media.DATA };
         @SuppressWarnings("deprecation")
         Cursor cursor = getActivity().managedQuery(uri, projection, null, null, null);

@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.socialmanager.R;
 import com.example.socialmanager.adapters.SearchAdapter;
+import com.example.socialmanager.apiTasks.InstagramSearchTask;
 import com.example.socialmanager.apiTasks.TwitterSearchTask;
 import com.example.socialmanager.utils.Post;
 import com.example.socialmanager.utils.SharedViewModel;

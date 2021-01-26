@@ -81,7 +81,7 @@ public class SearchAdapter extends ArrayAdapter<Post> {
 
         Post post = dataset.get(position);
         if (post.getType() == "twitter") holder.imgType.setImageResource(R.drawable.twitter_logo);
-        else holder.imgType.setImageResource(R.drawable.ig_logo);
+        else holder.imgType.setImageResource(R.drawable.ic_instagram_logo);
         String user = post.getUser();
         holder.txtUser.setText(user.length() > 10 ? user.substring(0,10) : user);
         holder.txtDate.setText(post.getDate());

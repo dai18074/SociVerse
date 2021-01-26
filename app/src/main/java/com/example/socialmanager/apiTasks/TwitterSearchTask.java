@@ -22,6 +22,7 @@ import twitter4j.TwitterFactory;
 public class TwitterSearchTask extends AsyncTask<String, Void, List<Post>> {
 
     private SearchAdapter searchAdapter;
+    private String query;
 
     public TwitterSearchTask(SearchAdapter searchAdapter) { this.searchAdapter = searchAdapter; }
 
@@ -65,6 +66,7 @@ public class TwitterSearchTask extends AsyncTask<String, Void, List<Post>> {
             Query query = new Query("#" + queryString);
             query.count(20); //100 is the max allowed
             QueryResult queryResult = twitter.search(query);
+            this.query = queryString;
 
             return getPostsFromResponse(queryResult);
         } catch (TwitterException te) {
@@ -77,6 +79,8 @@ public class TwitterSearchTask extends AsyncTask<String, Void, List<Post>> {
     @Override
     protected void onPostExecute(List<Post> posts) {
         searchAdapter.setPosts(posts);
+        InstagramSearchTask fetchPostsTask = new InstagramSearchTask(searchAdapter);
+        fetchPostsTask.execute(this.query);
     }
 
 }
