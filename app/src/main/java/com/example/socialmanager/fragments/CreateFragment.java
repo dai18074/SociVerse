@@ -71,7 +71,7 @@ public class CreateFragment extends Fragment {
             Boolean isItPost = radioPost.isChecked();
             String filePath = txtFilePath.getText().toString();
 
-            if (checkBoxTwitter.isChecked()){
+            if (checkBoxTwitter.isChecked() && isItPost){
                 StatusUpdate status = new StatusUpdate(postText);
 
                 if (!filePath.isEmpty()){
