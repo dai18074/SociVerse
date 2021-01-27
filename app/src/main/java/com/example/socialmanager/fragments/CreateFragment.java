@@ -24,6 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.socialmanager.R;
 import com.example.socialmanager.apiTasks.InstagramPostTask;
+import com.example.socialmanager.apiTasks.InstagramStoryTask;
 import com.example.socialmanager.apiTasks.TwitterPostTask;
 import com.example.socialmanager.utils.SharedViewModel;
 
@@ -52,7 +53,6 @@ public class CreateFragment extends Fragment {
         Button buttonPost = view.findViewById(R.id.btnPost);
         RadioGroup typeOfPost = view.findViewById(R.id.groupPostTypes);
         RadioButton radioPost = view.findViewById(R.id.radioPost);
-        RadioButton radioStory = view.findViewById(R.id.radioStory);
         CheckBox checkBoxTwitter = view.findViewById(R.id.checkBoxTwitter);
         CheckBox checkBoxIg = view.findViewById(R.id.checkBoxIg);
         TextView txtFilePath = view.findViewById(R.id.txtFilePath);
@@ -83,7 +83,10 @@ public class CreateFragment extends Fragment {
                 if (!filePath.isEmpty()){
                     File imageFile = new File(Uri.parse(filePath).getPath());
 
-                    newPostIg(imageFile, postText);
+                    if(isItPost)
+                        newPostIg(imageFile, postText);
+                    else
+                        newStoryIg(imageFile);
                 }
             }
 
@@ -108,6 +111,11 @@ public class CreateFragment extends Fragment {
     private void newPostIg(File imageFile, String message){
         InstagramPostTask postIgTask = new InstagramPostTask();
         postIgTask.execute(imageFile, message);
+    }
+
+    private void newStoryIg(File imageFile){
+        InstagramStoryTask storyIgTask = new InstagramStoryTask();
+        storyIgTask.execute(imageFile);
     }
 
     @Override
