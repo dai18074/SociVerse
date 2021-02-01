@@ -80,13 +80,13 @@ public class SearchAdapter extends ArrayAdapter<Post> {
         }
 
         Post post = dataset.get(position);
-        if (post.getType() == "twitter") holder.imgType.setImageResource(R.drawable.twitter_logo);
+        if (post.getType().equals("twitter")) holder.imgType.setImageResource(R.drawable.twitter_logo);
         else holder.imgType.setImageResource(R.drawable.ic_instagram_logo);
         String user = post.getUser();
         holder.txtUser.setText(user.length() > 10 ? user.substring(0,10) : user);
         holder.txtDate.setText(post.getDate());
         holder.txtPostText.setText(post.getText());
-        if (post.getUrlToImage() != "") {
+        if (!post.getUrlToImage().equals("")) {
             holder.imgPost.setVisibility(View.VISIBLE);
             Picasso.get().load(post.getUrlToImage()).into(holder.imgPost);
         } else {

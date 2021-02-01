@@ -41,6 +41,7 @@ public class CreateFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         return inflater.inflate(R.layout.fragment_create, container, false);
     }
 
@@ -48,8 +49,6 @@ public class CreateFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-
         Button buttonPost = view.findViewById(R.id.btnPost);
         RadioGroup typeOfPost = view.findViewById(R.id.groupPostTypes);
         RadioButton radioPost = view.findViewById(R.id.radioPost);
@@ -68,7 +67,7 @@ public class CreateFragment extends Fragment {
 
         buttonPost.setOnClickListener(v -> {
             String postText = txtPost.getText().toString();
-            Boolean isItPost = radioPost.isChecked();
+            boolean isItPost = radioPost.isChecked();
             String filePath = txtFilePath.getText().toString();
 
             if (checkBoxTwitter.isChecked() && isItPost){
@@ -89,7 +88,6 @@ public class CreateFragment extends Fragment {
                         newStoryIg(imageFile);
                 }
             }
-
         });
 
         // reload saved state
@@ -121,7 +119,6 @@ public class CreateFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         sharedViewModel.setPostText(
                 ((EditText)getView().findViewById(R.id.txtPost)).getText().toString()
@@ -151,7 +148,6 @@ public class CreateFragment extends Fragment {
 
                 filePath.setText(getPath(selectedImageURI));
             }
-
         }
     }
 
@@ -166,5 +162,4 @@ public class CreateFragment extends Fragment {
         path = cursor.getString(column_index);
         return path;
     }
-
 }

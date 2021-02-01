@@ -12,20 +12,16 @@ import java.util.List;
 
 import twitter4j.Query;
 import twitter4j.QueryResult;
-import twitter4j.Status;
-import twitter4j.Trend;
-import twitter4j.Trends;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
 public class TwitterSearchTask extends AsyncTask<String, Void, List<Post>> {
 
-    private SearchAdapter searchAdapter;
+    private final SearchAdapter searchAdapter;
     private String query;
 
     public TwitterSearchTask(SearchAdapter searchAdapter) { this.searchAdapter = searchAdapter; }
-
 
     @SuppressLint("SimpleDateFormat")
     private List<Post> getPostsFromResponse(QueryResult queryResult) {

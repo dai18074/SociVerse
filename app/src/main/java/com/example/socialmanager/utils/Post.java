@@ -1,7 +1,8 @@
 package com.example.socialmanager.utils;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Post {
-    // twitter/instagram/facebook
     private String date;
     private String type;
     private String user;
@@ -53,6 +54,7 @@ public class Post {
         this.urlToImage = urlToImage;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "NewsEntry{" +

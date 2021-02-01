@@ -13,7 +13,6 @@ import com.github.instagram4j.instagram4j.IGClient;
 import com.github.instagram4j.instagram4j.exceptions.IGLoginException;
 import com.github.instagram4j.instagram4j.models.media.timeline.TimelineImageMedia;
 import com.github.instagram4j.instagram4j.models.media.timeline.TimelineMedia;
-import com.github.instagram4j.instagram4j.models.user.User;
 import com.github.instagram4j.instagram4j.requests.feed.FeedTagRequest;
 import com.github.instagram4j.instagram4j.responses.feed.FeedTagResponse;
 
@@ -22,18 +21,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import twitter4j.Query;
-import twitter4j.QueryResult;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-
 public class InstagramSearchTask extends AsyncTask<String, Void, List<Post>> {
 
-    private SearchAdapter searchAdapter;
+    private final SearchAdapter searchAdapter;
 
     public InstagramSearchTask(SearchAdapter searchAdapter) { this.searchAdapter = searchAdapter; }
-
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("SimpleDateFormat")

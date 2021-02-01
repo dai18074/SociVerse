@@ -15,8 +15,7 @@ import twitter4j.TwitterFactory;
 
 public class TwitterTrendsTask extends AsyncTask<String, Void, List<String>> {
 
-    private TrendsAdapter trendsAdapter;
-
+    private final TrendsAdapter trendsAdapter;
 
     public TwitterTrendsTask(TrendsAdapter trendsAdapter) {
         this.trendsAdapter = trendsAdapter;

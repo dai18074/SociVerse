@@ -21,9 +21,7 @@ public class InstagramStoryTask extends AsyncTask<Object, Void, Void> {
         try {
             IGClient client = IGClient.builder().username(BuildConfig.IG_USERNAME).password(BuildConfig.IG_PASSWORD).login();
             client.actions().story().uploadPhoto(imageFile)
-                    .thenAccept(res -> {
-                        System.out.println("Made new instagram post!");
-                    })
+                    .thenAccept(res -> System.out.println("Made new instagram post!"))
                     .exceptionally(tr -> {
                         System.out.println("Failed to make new instagram story: " + tr.getMessage());
                         return null;

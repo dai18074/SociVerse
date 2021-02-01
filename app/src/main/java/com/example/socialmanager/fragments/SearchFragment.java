@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -18,12 +17,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.socialmanager.R;
 import com.example.socialmanager.adapters.SearchAdapter;
-import com.example.socialmanager.apiTasks.InstagramSearchTask;
 import com.example.socialmanager.apiTasks.TwitterSearchTask;
 import com.example.socialmanager.utils.Post;
 import com.example.socialmanager.utils.SharedViewModel;
 
-import java.net.CookieManager;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,21 +31,18 @@ public class SearchFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
-        return view;
+        searchAdapter = new SearchAdapter(getActivity(), R.layout.post, new ArrayList<>());
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ListView listView = view.findViewById(R.id.listSearch);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-
-        searchAdapter = new SearchAdapter(getActivity(), R.layout.post, new ArrayList<Post>());
-        listView.setAdapter(searchAdapter);
-
         ImageButton buttonSearch = view.findViewById(R.id.btnSearch);
         EditText txtSearch = view.findViewById(R.id.txtSearch);
+        ListView listView = view.findViewById(R.id.listSearch);
+        listView.setAdapter(searchAdapter);
 
         buttonSearch.setOnClickListener(v -> {
             String queryString = txtSearch.getText().toString();
@@ -83,8 +77,6 @@ public class SearchFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         sharedViewModel.setPosts(searchAdapter.getPosts());
     }
-
 }

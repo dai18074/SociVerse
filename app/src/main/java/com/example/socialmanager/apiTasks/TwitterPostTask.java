@@ -1,11 +1,7 @@
 package com.example.socialmanager.apiTasks;
 
-import android.net.Uri;
 import android.os.AsyncTask;
 
-import java.io.File;
-
-import twitter4j.Status;
 import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
